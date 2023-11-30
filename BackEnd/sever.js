@@ -25,7 +25,7 @@ const mongoose = require('mongoose');
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect('mongodb+srv://james:james@cluster1.thbzjrh.mongodb.net/');
+    await mongoose.connect('mongodb+srv://james:james@cluster1.thbzjrh.mongodb.net/DATAREP2023');
     
 }
 
@@ -40,7 +40,7 @@ const pianoModel = mongoose.model('my_pianos', PianoSchema);
 
 app.post('/api/piano', (req,res)=>{
     console.log(req.body);
-
+    
     pianoModel.create({
       state:req.body.state,
       brand:req.body.brand,
@@ -72,3 +72,7 @@ app.get('/api/piano', async(req, res)=>{
     let piano = await pianoModel.findByIdAndUpdate(req.params.id, req.body,{new:true});
     res.send(piano);
   })
+
+  app.listen(port, () => {
+    console.log(`Server is listening at http://localhost:${port}`);
+});

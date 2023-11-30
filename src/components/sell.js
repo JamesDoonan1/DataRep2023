@@ -26,7 +26,7 @@ function Sell() {
         axios.post('http://localhost:3000/api/piano', piano)
         .then(response => {
             console.log('Piano added successfully:', response.data);
-            // You can perform additional actions here if needed
+            
         })
           
         .catch((error) => console.error('Error submitting piano:', error));
