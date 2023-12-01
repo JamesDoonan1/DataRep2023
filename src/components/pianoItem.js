@@ -29,24 +29,24 @@ function PianoItem(props) {
                             .then((res) => {
                                 // Reload the data after successful deletion
                                 props.Reload();
-      })
-      .catch(error => {
-        console.error('Error deleting piano with ID ' + props.myPiano._id + ':', error);
+                            })
+                            .catch(error => {
+                                console.error('Error deleting piano with ID ' + props.myPiano._id + ':', error);
 
-        // Check if the error response contains more information
-        if (error.response) {
-          console.error('Error response data:', error.response.data);
-          console.error('Error response status:', error.response.status);
-        }
+                                // Check if the error response contains more information
+                                if (error.response) {
+                                    console.error('Error response data:', error.response.data);
+                                    console.error('Error response status:', error.response.status);
+                                }
 
-        // If the server did not respond at all
-        if (!error.response && error.request) {
-          console.error('No response received from the server.');
-        }
+                                // If the server did not respond at all
+                                if (!error.response && error.request) {
+                                    console.error('No response received from the server.');
+                                }
 
-        // If there was an error setting up the request
-        console.error('Error setting up the request:', error.config);
-      });
+                                // If there was an error setting up the request
+                                console.error('Error setting up the request:', error.config);
+                            });
                     }
                 }>Delete</Button></Card>
 

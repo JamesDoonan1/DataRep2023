@@ -41,7 +41,7 @@ export default function Edit(props) {
             image: image,
             price: price
         }
-        axios.put('http://localhost:3000/api/piano/' + id, newPiano)
+        axios.put('http://localhost:4000/api/piano/' + id, newPiano)
             .then((res) => {
                 console.log(res.data);
                 navigate('/View Pianos');

@@ -30,7 +30,7 @@ const PianoDetails = () => {
     return (
         <div>
             <h2>List of Pianos for sale!</h2>
-            <Piano myPiano={data} Reload={ReloadData}></Piano>
+            <Piano myPiano={data} reload={ReloadData}></Piano>
         </div>
     );
 };

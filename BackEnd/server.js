@@ -39,7 +39,7 @@ const PianoSchema = new mongoose.Schema({
 const pianoModel = mongoose.model('my_pianos', PianoSchema);
 
 
-app.delete('/api/piano/:id'), async (req, res) => {
+app.delete('/api/piano/:id', async (req, res) => {
    console.log('delete' +req.params.id);
   // Use the Mongoose model to find and delete a book by its ID
   // This is non-blocking code, as it uses 'await' with an asynchronous operation
@@ -66,7 +66,7 @@ app.delete('/api/piano/:id'), async (req, res) => {
     console.error('Error deleting piano:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
-}
+});
 
 
 
