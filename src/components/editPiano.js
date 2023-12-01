@@ -18,7 +18,7 @@ export default function Edit(props) {
         //axios is a promised based web client
         //make a HTTP Request with GET method and pass as part of the
         //url.
-        axios.get('http://localhost:3000/api/piano/' + id)
+        axios.get('http://localhost:4000/api/piano/' + id)
             .then((response) => {
 
                 // Assign Response data to the arrays using useState.
@@ -36,17 +36,20 @@ export default function Edit(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         const newPiano = {
-            id: id,
             state: state,
             brand: brand,
             image: image,
             price: price
-        };
+        }
         axios.put('http://localhost:3000/api/piano/' + id, newPiano)
             .then((res) => {
                 console.log(res.data);
                 navigate('/View Pianos');
-            });
+            })
+            .catch(
+                (error)=>{
+                    console.log(error)
+                });
     }
 
     return (

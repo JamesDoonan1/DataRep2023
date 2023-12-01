@@ -8,7 +8,7 @@ const PianoDetails = () => {
 
     useEffect(() => {
         // Fetch piano details from the API
-        axios.get(`http://localhost:3000/api/piano`)
+        axios.get(`http://localhost:4000/api/piano`)
             .then(response => {
                 setPianoDetails(response.data);
             })
@@ -17,10 +17,20 @@ const PianoDetails = () => {
             });
     }, []);
 
+    const ReloadData = (e) => {
+        axios.get(`http://localhost:4000/api/piano`)
+            .then(response => {
+                setPianoDetails(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching piano details:', error);
+            });
+    }
+
     return (
         <div>
             <h2>List of Pianos for sale!</h2>
-            <Piano myPiano={data}></Piano>
+            <Piano myPiano={data} Reload={ReloadData}></Piano>
         </div>
     );
 };
