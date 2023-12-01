@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function Edit(props) {
 
     let { id } = useParams();
-
+    
     const [state, setState] = useState("");
     const [brand, setBrand] = useState("");
     const [image, setImage] = useState("");
@@ -32,6 +32,7 @@ export default function Edit(props) {
             })
     }, []);
 
+    //test 
     const handleSubmit = (event) => {
         event.preventDefault();
         const newPiano = {
