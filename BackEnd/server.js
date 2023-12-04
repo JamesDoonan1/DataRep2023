@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 4000
 const cors = require('cors');
 
 app.use(cors());
@@ -37,6 +37,38 @@ const PianoSchema = new mongoose.Schema({
 })
 
 const pianoModel = mongoose.model('my_pianos', PianoSchema);
+
+
+app.delete('/api/piano/:id', async (req, res) => {
+   console.log('delete' +req.params.id);
+  // Use the Mongoose model to find and delete a book by its ID
+  // This is non-blocking code, as it uses 'await' with an asynchronous operation
+  // let piano = await pianoModel.findByIdAndDelete(req.params.id);
+  // res.send(piano);
+
+  try {
+    const pianoId = req.params.id;
+
+    // Check if the piano with the given ID exists in your database
+    const piano = await pianoModel.findById(pianoId);
+
+    if (!piano) {
+      // If the piano is not found, return a 404 response
+      return res.status(404).send('Piano not found');
+    }
+
+    // Delete the piano from the database
+    await pianoModel.findByIdAndDelete(pianoId);
+
+    // Respond with a success message or any relevant data
+    res.status(200).json({ message: 'Piano deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting piano:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 
 app.post('/api/piano', (req, res) => {
   console.log(req.body);

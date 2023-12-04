@@ -19,7 +19,6 @@ function App() {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/sell">Sell Piano</Nav.Link>
               <Nav.Link href="/PianoDetails">Piano Details</Nav.Link>
-              <Nav.Link href="/editPiano">Edit Piano</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
@@ -27,7 +26,7 @@ function App() {
         <Routes>
          <Route path='/sell' element={<Sell></Sell>}></Route> 
          <Route path='/PianoDetails' element={<PianoDetails></PianoDetails>}></Route>
-         <Route path='/editPiano' element={<Edit></Edit>}></Route>
+         <Route path='/edit/:id' element={<Edit></Edit>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

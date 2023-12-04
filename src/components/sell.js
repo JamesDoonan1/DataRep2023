@@ -23,7 +23,7 @@ function Sell() {
             price: price
         };
 
-        axios.post('http://localhost:3000/api/piano', piano)
+        axios.post('http://localhost:4000/api/piano', piano)
         .then(response => {
             console.log('Piano added successfully:', response.data);
             
