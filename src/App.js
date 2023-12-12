@@ -8,26 +8,34 @@ import Sell from './components/sell';
 import PianoDetails from './components/PianoDetails';
 import Edit from './components/editPiano';
 
+import Home from './components/home'; 
+
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar bg="danger" data-bs-theme="dark">
+        <Navbar bg="success" data-bs-theme="dark" expand="lg">
           <Container>
-            <Navbar.Brand href="/">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/sell">Sell Piano</Nav.Link>
-              <Nav.Link href="/PianoDetails">Piano Details</Nav.Link>
-            </Nav>
+            <Navbar.Brand href="/">Jimmy's Piano</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+              <Nav className="me-auto" style={{ maxHeight: '100px' }} navbarScroll>
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/sell">Sell Piano</Nav.Link>
+                <Nav.Link href="/PianoDetails">Piano Details</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
 
-        <Routes>
-         <Route path='/sell' element={<Sell></Sell>}></Route> 
-         <Route path='/PianoDetails' element={<PianoDetails></PianoDetails>}></Route>
-         <Route path='/edit/:id' element={<Edit></Edit>}></Route>
-        </Routes>
+        <Container className="mt-3">
+          <Routes>
+            <Route path="/" element={<Home />} /> 
+            <Route path='/sell' element={<Sell></Sell>}></Route>
+            <Route path='/PianoDetails' element={<PianoDetails></PianoDetails>}></Route>
+            <Route path='/edit/:id' element={<Edit></Edit>}></Route>
+          </Routes>
+        </Container>
       </div>
     </BrowserRouter>
   );

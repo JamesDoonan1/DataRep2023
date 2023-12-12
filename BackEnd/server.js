@@ -18,7 +18,6 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
 // getting-started.js
 const mongoose = require('mongoose');
 
@@ -38,9 +37,8 @@ const PianoSchema = new mongoose.Schema({
 
 const pianoModel = mongoose.model('my_pianos', PianoSchema);
 
-
 app.delete('/api/piano/:id', async (req, res) => {
-   console.log('delete' +req.params.id);
+   console.log('delete' + req.params.id);
   // Use the Mongoose model to find and delete a book by its ID
   // This is non-blocking code, as it uses 'await' with an asynchronous operation
   // let piano = await pianoModel.findByIdAndDelete(req.params.id);
@@ -68,8 +66,6 @@ app.delete('/api/piano/:id', async (req, res) => {
   }
 });
 
-
-
 app.post('/api/piano', (req, res) => {
   console.log(req.body);
 
@@ -82,7 +78,6 @@ app.post('/api/piano', (req, res) => {
 
     .then(() => { res.send("Piano Add Created") })
     .catch(() => { res.send("Piano Add NOT Created") });
-
 })
 
 app.get('/api/piano', async (req, res) => {

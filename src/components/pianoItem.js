@@ -3,9 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
 function PianoItem(props) {
-
-
     return (
         <div>
             <Card>
@@ -24,11 +23,12 @@ function PianoItem(props) {
                 <Button variant="danger" onClick={
                     (e) => {
                         console.log('Deleting piano with ID:', props.myPiano._id);
+                        
                         // Send a DELETE request to the API when the Delete button is clicked
                         axios.delete('http://localhost:4000/api/piano/' + props.myPiano._id)
                             .then((res) => {
                                 // Reload the data after successful deletion
-                                props.Reload();
+                                props.ReloadData();
                             })
                             .catch(error => {
                                 console.error('Error deleting piano with ID ' + props.myPiano._id + ':', error);

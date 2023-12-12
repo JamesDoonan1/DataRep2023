@@ -1,0 +1,21 @@
+/* src/components/Home.css */
+.row {
+    margin-top: 20px;
+  }
+  
+  .col-md-6 {
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn img {
+    width: 250px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
