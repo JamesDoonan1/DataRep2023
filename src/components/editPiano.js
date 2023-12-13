@@ -57,11 +57,14 @@ export default function Edit(props) {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Edit Piano Status. New or Used </label>
-                    <input type="text"
+                    <select
                         className="form-control"
                         value={state}
                         onChange={(e) => { setState(e.target.value) }}
-                    />
+                    >
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                    </select>
                 </div>
                 <div className="form-group">
                     <label>Edit Piano Brand i.e Yamaha </label>
@@ -95,4 +98,5 @@ export default function Edit(props) {
             </form>
         </div>
     );
+    
 }

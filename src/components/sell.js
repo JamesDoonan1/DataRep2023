@@ -41,11 +41,14 @@ function Sell() {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Add Piano status. New or Used: </label>
-                    <input type="text"
+                    <select
                         className="form-control"
                         value={state}
                         onChange={(e) => { setState(e.target.value) }}
-                    />
+                    >
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                    </select>
                 </div>
                 <div className="form-group">
                     <label>Add Piano Brand i.e Yamaha: </label>
@@ -79,6 +82,7 @@ function Sell() {
             </form>
         </div>
     );
+    
 };
 
 export default Sell;
