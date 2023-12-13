@@ -25,7 +25,6 @@ main().catch(err => console.log(err));
 
 async function main() {
   await mongoose.connect('mongodb+srv://james:james@cluster1.thbzjrh.mongodb.net/DATAREP2023');
-
 }
 
 const PianoSchema = new mongoose.Schema({
@@ -41,8 +40,6 @@ app.delete('/api/piano/:id', async (req, res) => {
    console.log('delete' + req.params.id);
   // Use the Mongoose model to find and delete a book by its ID
   // This is non-blocking code, as it uses 'await' with an asynchronous operation
-  // let piano = await pianoModel.findByIdAndDelete(req.params.id);
-  // res.send(piano);
 
   try {
     const pianoId = req.params.id;
@@ -60,6 +57,7 @@ app.delete('/api/piano/:id', async (req, res) => {
 
     // Respond with a success message or any relevant data
     res.status(200).json({ message: 'Piano deleted successfully' });
+
   } catch (error) {
     console.error('Error deleting piano:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -85,6 +83,7 @@ app.get('/api/piano', async (req, res) => {
   try {
     let piano = await pianoModel.find({});
     res.json(piano);
+
   } catch (error) {
     console.error('Error fetching pianos:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -98,7 +97,7 @@ app.get('/api/piano/:identifier', async (req, res) => {
   res.send(piano);
 })
 
-//// Define a route to handle updates for a specific book by its ID
+// Define a route to handle updates for a specific piano by its ID
 app.put('/api/piano/:id', async (req, res) => {
   console.log("Update " + req.params.id);
   let piano = await pianoModel.findByIdAndUpdate(req.params.id, req.body, { new: true });

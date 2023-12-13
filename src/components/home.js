@@ -1,4 +1,3 @@
-// src/components/Home.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
@@ -7,8 +6,6 @@ const Home = () => {
   return (
     <div>
       <h2>Welcome to Jimmy's Piano Shop!</h2>
-
-      {/* Buttons Row */}
       <div className="row">
         <div className="col-md-6">
           <Link to="/sell" className="btn btn-primary">
@@ -29,8 +26,6 @@ const Home = () => {
           </Link>
         </div>
       </div>
-
-     
       <div className="row">
         <div className="col-md-12">
           <img
