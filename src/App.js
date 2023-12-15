@@ -5,10 +5,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Sell from './components/sell';
-import PianoDetails from './components/PianoDetails';
+import PianoDetails from './components/PianoDetails'; // Updated import
 import Edit from './components/editPiano';
-
-import Home from './components/home'; 
+import Home from './components/home';
 
 function App() {
   return (
@@ -31,9 +30,9 @@ function App() {
         <Container className="mt-3">
           <Routes>
             <Route path="/" element={<Home />} /> 
-            <Route path='/sell' element={<Sell></Sell>}></Route>
-            <Route path='/PianoDetails' element={<PianoDetails></PianoDetails>}></Route>
-            <Route path='/edit/:id' element={<Edit></Edit>}></Route>
+            <Route path='/sell' element={<Sell />} />
+            <Route path='/PianoDetails' element={<PianoDetails />} /> {/* Updated component */}
+            <Route path='/edit/:id' element={<Edit />} />
           </Routes>
         </Container>
       </div>
